@@ -1,0 +1,8 @@
+div {
+  font-family: monospace;
+  font-size: 20px;
+}
+.comment {
+  color: grey;
+  font-style: italic;
+}
