@@ -17,7 +17,7 @@ const items = [{
 
 class ItemList extends React.Component {
   render() {
-    let itemNodes = items.map(it => {
+    const itemNodes = items.map(it => {
       return (<Item key={it.id} command={it.command} comment={it.comment} />);
     });
     return (
