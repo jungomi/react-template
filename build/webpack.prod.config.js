@@ -1,9 +1,8 @@
-var webpack = require('webpack');
-var merge = require('webpack-merge');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var baseConfig = require('./webpack.base.config.js');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.base.config.js');
 
-var prodConfig = merge(baseConfig, {
+const prodConfig = merge(baseConfig, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
