@@ -15,17 +15,15 @@ const items = [{
   comment: 'Build app for production'
 }];
 
-class ItemList extends React.Component {
-  render() {
-    const itemNodes = items.map(it => {
-      return (<Item key={it.id} command={it.command} comment={it.comment} />);
-    });
-    return (
-      <div className="item-list">
-        {itemNodes}
-      </div>
-      );
-  }
-}
+const ItemList = () => {
+  const itemNodes = items.map(it => {
+    return (<Item key={it.id} command={it.command} comment={it.comment} />);
+  });
+  return (
+    <div className="item-list">
+      {itemNodes}
+    </div>
+  );
+};
 
 export default ItemList;
