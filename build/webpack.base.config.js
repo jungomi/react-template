@@ -1,29 +1,18 @@
+const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: path.resolve(__dirname, '../src/main.js'),
   output: {
-    path: './dist/',
+    path: path.resolve(__dirname, '../dist/'),
     publicPath: '/',
     filename: 'bundle.js'
   },
   module: {
-    preLoaders: [{
-      test: '/\.js$/',
-      exclude: /node_modules/,
-      loader: 'eslint-loader'
-    }],
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       exclude: /node_modules/,
       loader: 'babel-loader'
-    }, {
-      test: /\.css$/,
-      loader: ExtractTextPlugin.extract({
-        fallbackLoader: 'style-loader',
-        loader: 'css-loader!postcss-loader'
-      })
     }, {
       test: /\.json$/,
       loader: 'json-loader'
@@ -39,7 +28,6 @@ module.exports = {
     colors: true
   },
   plugins: [
-    new CopyWebpackPlugin([{ from: './index.html' }]),
-    new ExtractTextPlugin('style.css')
+    new CopyWebpackPlugin([{ from: path.resolve(__dirname, '../index.html') }])
   ]
 };
