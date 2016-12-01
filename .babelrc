@@ -7,5 +7,9 @@
     }],
     "react"
   ],
-  "plugins": ["transform-runtime", "react-hot-loader/babel"]
+  "plugins": [
+    "transform-runtime",
+    "transform-flow-strip-types",
+    "react-hot-loader/babel"
+  ]
 }
