@@ -1,8 +1,13 @@
+const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.config.js');
 
 const devConfig = merge(baseConfig, {
+  entry: [
+    'react-hot-loader/patch',
+    path.resolve(__dirname, '../src/main.js')
+  ],
   devtool: 'source-map',
   devServer: {
     contentBase: baseConfig.output.publicPath
