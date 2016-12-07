@@ -6,7 +6,7 @@ const baseConfig = require('./webpack.base.config.js');
 const devConfig = merge(baseConfig, {
   entry: [
     'react-hot-loader/patch',
-    path.resolve(__dirname, '../src/main.js')
+    path.resolve(__dirname, '../src/main.dev.js')
   ],
   devtool: 'source-map',
   devServer: {
