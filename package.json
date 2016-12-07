@@ -4,8 +4,8 @@
   "description": "Template for React",
   "main": "src/main.js",
   "scripts": {
-    "dev": "webpack-dev-server --hot --inline --config build/webpack.dev.config.js",
-    "build": "webpack --progress --config build/webpack.prod.config.js",
+    "dev": "webpack-dev-server --hot --inline --config webpack.config.js",
+    "build": "NODE_ENV=production webpack --progress --config webpack.config.js",
     "clean": "rm -rf dist coverage",
     "lint": "eslint .",
     "test": "ava --verbose",
@@ -32,6 +32,10 @@
     "react-dom": "^15.4.1"
   },
   "devDependencies": {
+    "@webpack-blocks/babel6": "^0.1.1",
+    "@webpack-blocks/webpack2": "^0.1.0",
+    "@webpack-blocks/dev-server2": "^0.1.0",
+    "@webpack-blocks/extract-text2": "^0.1.0",
     "autoprefixer": "^6.5.3",
     "ava": "^0.17.0",
     "babel-core": "^6.18.2",
