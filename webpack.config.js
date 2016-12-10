@@ -13,14 +13,16 @@ const devServer = require('@webpack-blocks/dev-server2');
 const extractText = require('@webpack-blocks/extract-text2');
 
 module.exports = createConfig([
-  entryPoint('./src/main.js'),
   setOutput('./dist/bundle.js'),
   babel(),
   env('development', [
+    entryPoint('./src/main.dev.js'),
     sourceMaps(),
-    devServer()
+    devServer(),
+    devServer.reactHot()
   ]),
   env('production', [
+    entryPoint('./src/main.js'),
     extractText('style.css'),
     addPlugins([
       new webpack.DefinePlugin({
