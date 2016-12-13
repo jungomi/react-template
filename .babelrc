@@ -1,7 +1,10 @@
 {
   "presets": [
-    "es2015",
-    "stage-0",
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions"]
+      }
+    }],
     "react"
   ],
   "plugins": ["transform-runtime", "react-hot-loader/babel"]
