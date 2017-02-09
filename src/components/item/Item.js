@@ -9,9 +9,4 @@ const Item = ({ comment, command }: { comment: string, command: string }) => (
   </div>
 );
 
-Item.propTypes = {
-  comment: React.PropTypes.string,
-  command: React.PropTypes.string.isRequired
-};
-
 export default Item;
