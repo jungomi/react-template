@@ -24,8 +24,7 @@ const fb = new fsbx.FuseBox({
         ],
         plugins: [
           'transform-runtime',
-          'transform-flow-strip-types',
-          'react-hot-loader/babel'
+          'transform-flow-strip-types'
         ]
       }
     })
@@ -36,5 +35,5 @@ fs.copySync('index.html', 'dist/index.html');
 if (process.env.NODE_ENV === 'production') {
   fb.bundle('>main.js');
 } else {
-  fb.devServer('>main.dev.js', { port: 8080 });
+  fb.devServer('>main.js', { port: 8080 });
 }
