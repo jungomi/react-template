@@ -4,8 +4,8 @@
   "description": "Template for React",
   "main": "src/main.js",
   "scripts": {
-    "dev": "webpack-dev-server --hot --inline --config build/webpack.dev.config.js",
-    "build": "webpack --progress --config build/webpack.prod.config.js",
+    "dev": "webpack-dev-server --hot --inline",
+    "build": "NODE_ENV=production webpack --progress",
     "clean": "rm -rf dist coverage",
     "flow": "flow",
     "lint": "eslint .",
