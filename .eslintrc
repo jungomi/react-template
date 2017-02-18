@@ -8,6 +8,7 @@
     }
   },
   "plugins": [
+    "prettier",
     "flowtype",
     "html",
     "react"
@@ -23,6 +24,7 @@
     "plugin:flowtype/recommended"
   ],
   "rules": {
+    "prettier/prettier": ["error", { "singleQuote": true }],
     "array-bracket-spacing": ["error", "never"],
     "arrow-parens": ["error", "as-needed"],
     "arrow-spacing": ["error",{ "before": true, "after": true }],

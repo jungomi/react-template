@@ -14,17 +14,21 @@ const baseConfig = {
     filename: 'bundle.js'
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader'
-    }, {
-      test: /\.html$/,
-      loader: 'html-loader'
-    }, {
-      test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
-      loader: 'url-loader'
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
+      },
+      {
+        test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
+        loader: 'url-loader'
+      }
+    ]
   },
   stats: {
     colors: true
@@ -45,19 +49,25 @@ function devConfig(config) {
       contentBase: config.output.publicPath
     },
     module: {
-      rules: [{
-        test: /\.css$/,
-        loader: [{
-          loader: 'style-loader'
-        }, {
-          loader: 'css-loader',
-          options: {
-            importLoaders: true
-          }
-        }, {
-          loader: 'postcss-loader'
-        }]
-      }]
+      rules: [
+        {
+          test: /\.css$/,
+          loader: [
+            {
+              loader: 'style-loader'
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: true
+              }
+            },
+            {
+              loader: 'postcss-loader'
+            }
+          ]
+        }
+      ]
     },
     plugins: [
       new CopyWebpackPlugin([{ from: './src/main.css', to: 'style.css' }])
@@ -68,20 +78,25 @@ function devConfig(config) {
 function prodConfig(config) {
   return merge(config, {
     module: {
-      rules: [{
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: [{
-            loader: 'css-loader',
-            options: {
-              importLoaders: true
-            }
-          }, {
-            loader: 'postcss-loader'
-          }]
-        })
-      }]
+      rules: [
+        {
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract({
+            fallbackLoader: 'style-loader',
+            loader: [
+              {
+                loader: 'css-loader',
+                options: {
+                  importLoaders: true
+                }
+              },
+              {
+                loader: 'postcss-loader'
+              }
+            ]
+          })
+        }
+      ]
     },
     plugins: [
       new webpack.DefinePlugin({
