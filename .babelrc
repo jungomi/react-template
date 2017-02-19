@@ -8,6 +8,7 @@
     "react"
   ],
   "plugins": [
+    "syntax-dynamic-import",
     "transform-runtime",
     "transform-flow-strip-types",
     "react-hot-loader/babel"

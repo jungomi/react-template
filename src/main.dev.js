@@ -13,12 +13,13 @@ ReactDOM.render(
 
 if (module.hot) {
   module.hot.accept('./App', () => {
-    const NewApp = require('./App').default;
-    ReactDOM.render(
-      <AppContainer>
-        <NewApp />
-      </AppContainer>,
-      document.getElementById('app')
-    );
+    import('./App').then(({ default: NewApp }) => {
+      ReactDOM.render(
+        <AppContainer>
+          <NewApp />
+        </AppContainer>,
+        document.getElementById('app')
+      );
+    });
   });
 }
