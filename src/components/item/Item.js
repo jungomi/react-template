@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react';
+import { h } from 'preact';
 import './item.css';
 
 const Item = ({ comment, command }: { comment: string, command: string }) => (

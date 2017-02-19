@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react';
+import { h } from 'preact';
 import Item from './Item';
 
 const items = [

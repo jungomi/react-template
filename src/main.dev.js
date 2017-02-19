@@ -1,24 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
+import { h, render } from 'preact';
 import App from './App';
 import './main.css';
+import 'preact/devtools';
 
-ReactDOM.render(
-  <AppContainer>
-    <App />
-  </AppContainer>,
-  document.getElementById('app')
-);
-
-if (module.hot) {
-  module.hot.accept('./App', () => {
-    const NewApp = require('./App').default;
-    ReactDOM.render(
-      <AppContainer>
-        <NewApp />
-      </AppContainer>,
-      document.getElementById('app')
-    );
-  });
-}
+render(<App />, document.getElementById('app'));

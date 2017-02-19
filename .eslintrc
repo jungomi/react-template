@@ -23,6 +23,11 @@
     "plugin:react/recommended",
     "plugin:flowtype/recommended"
   ],
+  "settings": {
+    "react": {
+      "pragma": "h"
+    }
+  },
   "rules": {
     "prettier/prettier": ["error", { "singleQuote": true }],
     "array-bracket-spacing": ["error", "never"],

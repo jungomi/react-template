@@ -8,6 +8,7 @@
     "react"
   ],
   "plugins": [
+    ["transform-react-jsx", { "pragma":"h" }],
     "transform-runtime",
     "transform-flow-strip-types",
     "react-hot-loader/babel"

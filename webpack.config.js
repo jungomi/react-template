@@ -40,10 +40,7 @@ const baseConfig = {
 
 function devConfig(config) {
   return merge(config, {
-    entry: [
-      'react-hot-loader/patch',
-      path.resolve(__dirname, 'src/main.dev.js')
-    ],
+    entry: [path.resolve(__dirname, 'src/main.dev.js')],
     devtool: 'source-map',
     devServer: {
       contentBase: config.output.publicPath

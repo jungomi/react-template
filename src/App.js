@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react';
+import { h } from 'preact';
 import ItemList from './components/item/ItemList';
 
 const App = () => (

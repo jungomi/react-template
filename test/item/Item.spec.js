@@ -1,5 +1,5 @@
 import test from 'ava';
-import React from 'react';
+import { h } from 'preact';
 import { shallow } from 'enzyme';
 import Item from '../../src/components/item/Item.js';
 

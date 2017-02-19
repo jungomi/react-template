@@ -1,7 +1,6 @@
 /* @flow */
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { h, render } from 'preact';
 import App from './App';
 import './main.css';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+render(<App />, document.getElementById('app'));
