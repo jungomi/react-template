@@ -7,7 +7,7 @@ const webpack = require('webpack');
 const isProd = process.env.NODE_ENV === 'production';
 
 const baseConfig = {
-  entry: path.resolve(__dirname, 'src/main.js'),
+  entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     path: path.resolve(__dirname, 'dist/'),
     publicPath: '/',
@@ -42,7 +42,7 @@ function devConfig(config) {
   return merge(config, {
     entry: [
       'react-hot-loader/patch',
-      path.resolve(__dirname, 'src/main.dev.js')
+      path.resolve(__dirname, 'src/index.dev.js')
     ],
     devtool: 'source-map',
     devServer: {
