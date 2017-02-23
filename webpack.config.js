@@ -1,6 +1,6 @@
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 
@@ -34,7 +34,9 @@ const baseConfig = {
     colors: true
   },
   plugins: [
-    new CopyWebpackPlugin([{ from: path.resolve(__dirname, 'index.html') }])
+    new HtmlWebpackPlugin({
+      template: 'index.html'
+    })
   ]
 };
 
@@ -68,10 +70,7 @@ function devConfig(config) {
           ]
         }
       ]
-    },
-    plugins: [
-      new CopyWebpackPlugin([{ from: './src/main.css', to: 'style.css' }])
-    ]
+    }
   });
 }
 
