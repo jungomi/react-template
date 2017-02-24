@@ -54,7 +54,7 @@ function devConfig(config) {
       rules: [
         {
           test: /\.css$/,
-          loader: [
+          use: [
             {
               loader: 'style-loader'
             },
@@ -81,8 +81,8 @@ function prodConfig(config) {
         {
           test: /\.css$/,
           loader: ExtractTextPlugin.extract({
-            fallbackLoader: 'style-loader',
-            loader: [
+            fallback: 'style-loader',
+            use: [
               {
                 loader: 'css-loader',
                 options: {
