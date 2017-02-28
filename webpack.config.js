@@ -61,7 +61,7 @@ function devConfig(config) {
             {
               loader: 'css-loader',
               options: {
-                importLoaders: true
+                importLoaders: 1
               }
             },
             {
@@ -86,7 +86,7 @@ function prodConfig(config) {
               {
                 loader: 'css-loader',
                 options: {
-                  importLoaders: true
+                  importLoaders: 1
                 }
               },
               {
