@@ -5,6 +5,10 @@ const merge = require('webpack-merge');
 const webpack = require('webpack');
 
 const isProd = process.env.NODE_ENV === 'production';
+const extractCss = new ExtractTextPlugin({
+  disable: !isProd,
+  filename: 'styles.css'
+});
 
 const baseConfig = {
   entry: path.resolve(__dirname, 'src/index.js'),
@@ -27,6 +31,24 @@ const baseConfig = {
       {
         test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
         loader: 'url-loader'
+      },
+      {
+        test: /\.css$/,
+        loader: extractCss.extract({
+          disable: !isProd,
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1
+              }
+            },
+            {
+              loader: 'postcss-loader'
+            }
+          ]
+        })
       }
     ]
   },
@@ -36,7 +58,8 @@ const baseConfig = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'index.html'
-    })
+    }),
+    extractCss
   ]
 };
 
@@ -49,54 +72,12 @@ function devConfig(config) {
     devtool: 'source-map',
     devServer: {
       contentBase: config.output.publicPath
-    },
-    module: {
-      rules: [
-        {
-          test: /\.css$/,
-          use: [
-            {
-              loader: 'style-loader'
-            },
-            {
-              loader: 'css-loader',
-              options: {
-                importLoaders: 1
-              }
-            },
-            {
-              loader: 'postcss-loader'
-            }
-          ]
-        }
-      ]
     }
   });
 }
 
 function prodConfig(config) {
   return merge(config, {
-    module: {
-      rules: [
-        {
-          test: /\.css$/,
-          loader: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [
-              {
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1
-                }
-              },
-              {
-                loader: 'postcss-loader'
-              }
-            ]
-          })
-        }
-      ]
-    },
     plugins: [
       new webpack.DefinePlugin({
         'process.env': {
@@ -115,8 +96,7 @@ function prodConfig(config) {
           comments: false
         },
         sourceMap: false
-      }),
-      new ExtractTextPlugin('style.css')
+      })
     ]
   });
 }
