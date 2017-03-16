@@ -15,10 +15,10 @@
     "coverage": "nyc npm run test"
   },
   "ava": {
-    "require": [
-      "./test/helpers/setup.js"
-    ],
-    "babel": "inherit"
+    "require": ["./test/helpers/setup.js"],
+    "babel": {
+      "presets": [["env", { "targets": { "node": "current" } }], "react"]
+    }
   },
   "nyc": {
     "reporter": [
