@@ -30,7 +30,10 @@ const baseConfig = {
       },
       {
         test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)$/,
-        loader: 'url-loader'
+        loader: 'url-loader',
+        options: {
+          limit: 10000
+        }
       },
       {
         test: /\.css$/,
