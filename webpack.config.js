@@ -69,10 +69,7 @@ function devConfig(config) {
       'react-hot-loader/patch',
       path.resolve(__dirname, 'src/index.dev.js')
     ],
-    devtool: 'source-map',
-    devServer: {
-      contentBase: config.output.publicPath
-    }
+    devtool: 'source-map'
   });
 }
 
