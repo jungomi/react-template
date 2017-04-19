@@ -38,7 +38,6 @@ const baseConfig = {
       {
         test: /\.css$/,
         loader: extractCss.extract({
-          disable: !isProd,
           fallback: 'style-loader',
           use: [
             {
