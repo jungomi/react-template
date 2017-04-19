@@ -4,7 +4,7 @@
   "description": "Template for React",
   "main": "src/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --hot --inline --progress",
+    "dev": "webpack-dev-server --progress",
     "build": "cross-env NODE_ENV=production webpack --progress",
     "clean": "rimraf dist coverage",
     "fix": "eslint . --fix",

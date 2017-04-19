@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import App from './App';
 import './main.css';
 
-async function init() {
-  const { default: App } = await import('./App');
+function render(Component) {
   ReactDOM.render(
     <AppContainer>
-      <App />
+      <Component />
     </AppContainer>,
     document.getElementById('app')
   );
 }
 
-if (module.hot) {
-  module.hot.accept('./App', init);
-}
+render(App);
 
-init();
+if (module.hot) {
+  module.hot.accept('./App', () => render(App));
+}

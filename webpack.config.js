@@ -69,9 +69,18 @@ function devConfig(config) {
   return merge(config, {
     entry: [
       'react-hot-loader/patch',
+      'webpack-dev-server/client?http://localhost:8080',
+      'webpack/hot/only-dev-server',
       path.resolve(__dirname, 'src/index.dev.js')
     ],
-    devtool: 'source-map'
+    devServer: {
+      hot: true
+    },
+    devtool: 'source-map',
+    plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NamedModulesPlugin()
+    ]
   });
 }
 
